@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Pecuniary Add Scopes
+
+Mappings:
+  Constants:
+    Application:
+      Name: Pecuniary
+
+Resources:
+  AddScopesLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: pecuniary-AddScopes
+      Handler: Pecuniary.AddScopes::Pecuniary.AddScopes.Function::FunctionHandler
+      Runtime: dotnetcore2.1
+      CodeUri: src/Pecuniary.AddScopes/bin/Debug/netcoreapp2.1/publish
+      MemorySize: 384
+      Timeout: 30
+      Policies:
+        - AWSLambdaVPCAccessExecutionRole
+        - Statement:
+          - Effect: Allow
+            Action:
+              - apigateway:GET
+              - apigateway:PATCH
+              - apigateway:POST
+            Resource:
+              - !Sub arn:aws:apigateway:${AWS::Region}::/restapis/*
+          #- Effect: Allow
+          #  Action:
+          #    - s3:GetObject
+          #  Resource: arn:aws:s3:::layers-shared-bucket/*
+      Tags:
+        AppName: !FindInMap [Constants, Application, Name]
