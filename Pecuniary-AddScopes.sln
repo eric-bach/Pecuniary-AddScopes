@@ -13,9 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BEA62126
 		stage.json = stage.json
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{46A0174F-076F-41B2-AF6C-D3D988675D65}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pecuniary.AddScopes", "src\Pecuniary.AddScopes\Pecuniary.AddScopes.csproj", "{6513AA3A-3AF0-4497-952B-52F4E8FF0D4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pecuniary.AddScopes", "Pecuniary.AddScopes\Pecuniary.AddScopes.csproj", "{6513AA3A-3AF0-4497-952B-52F4E8FF0D4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
