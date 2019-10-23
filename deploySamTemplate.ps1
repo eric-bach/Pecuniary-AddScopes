@@ -49,11 +49,11 @@ else
 {
     Write-Host "`n`nPrebuild:"
     
-    dotnet restore src/Pecuniary.AddScopes/Pecuniary.AddScopes.csproj
+    dotnet restore Pecuniary.AddScopes/Pecuniary.AddScopes.csproj
     
     Write-Host "`n`nBuild:"
     
-    dotnet publish src/Pecuniary.AddScopes/Pecuniary.AddScopes.csproj
+    dotnet publish Pecuniary.AddScopes/Pecuniary.AddScopes.csproj
 }
   
 Write-Host "`n`nDeploy:"
