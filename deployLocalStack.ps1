@@ -61,6 +61,6 @@ dotnet-lambda deploy-serverless `
     --template $samTemplate `
     --region us-west-2 `
     --s3-prefix $developerPrefix- `
-    --s3-bucket pecuniary1-deployment-artifacts
+    --s3-bucket pecuniary-deployment-artifacts
 
 Write-Host "`n`n YOUR STACK NAME IS:   $developerPrefix-pecuniary-addscopes-stack   `n`n"
