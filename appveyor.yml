@@ -33,15 +33,15 @@ after_build:
 
 # Tests configuration
 
-# test_script:
-#   - OpenCover.Console.exe
-#     -target:"C:\Program Files\dotnet\dotnet.exe"
-#     -targetargs:"test"
-#     -output:coverage.xml
-#     -oldStyle
-#     -filter:"+[Pecuniary.AddScopes*]* -[Pecuniary.AddScopes.Tests*]*"
-#     -register:user
-#   - codecov -f "coverage.xml"
+test_script:
+  - OpenCover.Console.exe
+    -target:"C:\Program Files\dotnet\dotnet.exe"
+    -targetargs:"test"
+    -output:coverage.xml
+    -oldStyle
+    -filter:"+[Pecuniary.AddScopes*]* -[Pecuniary.AddScopes.Tests*]*"
+    -register:user
+  - codecov -f "coverage.xml"
 
 # Artifacts configuration
 
