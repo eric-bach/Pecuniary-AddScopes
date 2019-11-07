@@ -55,24 +55,5 @@ if ($lastexitcode -ne 0) {
     throw "Error deploying" + $stackName
 }
 
-# Get the API Gateway Base URL
-$stack = aws cloudformation describe-stacks --stack-name $stackName --region us-west-2 | ConvertFrom-Json
-$outputKey = $stack.Stacks.Outputs.OutputKey.IndexOf("PecuniaryApiGatewayBaseUrl")
-$apiGatewayBaseUrl = $stack.Stacks.Outputs[$outputKey].OutputValue
-
-# Add scopes
-Write-Host "`n`Adding OAuth scopes..."
-aws lambda invoke `
-    --function-name "pecuniary-AddScopes" `
-    --payload """{ """"ApiGatewayBaseUrl"""": """"$apiGatewayBaseUrl"""" }""" `
-    --region us-west-2 `
-    outfile.json
-
-# Handle add scope errors
-if ($lastexitcode -ne 0) {
-    throw "Error adding OAuth scopes"
-}
-Remove-Item outfile.json
-
 Write-Host "`n`n YOUR STACK NAME IS:   " -NoNewLine
 Write-Host "$stackName   `n`n" -ForegroundColor Cyan
